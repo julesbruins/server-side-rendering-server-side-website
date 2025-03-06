@@ -1,6 +1,6 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
-import express from 'express'
+import express, { request } from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
@@ -8,10 +8,13 @@ import { Liquid } from 'liquidjs';
 
 console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
+const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task/')            // Je haalt de API op
+const excerciseResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_exercise')    // Je haalt de API op
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
+const taskResponseJSON = await taskResponse.json()                                                      // Je zet de data om in JSON
+const excerciseResponseJSON = await excerciseResponse.json()                                            // Je zet de data om in JSON
+
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
@@ -34,11 +37,20 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
-app.get('/', async function (request, response) {
+app.get('/', async function (request, response) {               // Je haalt de root op
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+   response.render('index.liquid', {task: taskResponseJSON.data })  
 })
+
+app.get('/task/:id', async function (request, response) {       // Je haalt de id op die uit de filter (<a> van task.lquid) komt. 
+  const task = request.params.id;                               // Je maakt een variabele aan voor de opgevraagde id
+  const taskResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_task/?fields=*.*&filter={"id":"${task}"}&limit=1`) // De variable kan je in de link terug laten komen
+  const taskResponseJSON = await taskResponse.json()            // Je zet de data om in JSON
+
+  response.render('task.liquid', {task: taskResponseJSON.data?.[0] || [] })   // Je rendert de pagina op task.liquid. De vraagteken en || staan ervoor dat als de data leeg is de pagina alsnog geladen wordt.
+})
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
@@ -57,3 +69,5 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+
