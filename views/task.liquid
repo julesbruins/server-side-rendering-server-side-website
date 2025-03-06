@@ -1,0 +1,13 @@
+{% render 'partials/head.liquid', title:'rouwtaak 1' %}
+
+<body>
+    <p>Title: {{ task.title }}</p>
+    <p>Description: {{ task.description }}</p>
+    
+    <ul>
+        {% for excercise in task.exercise %}
+            <li>Exercise Title: {{ excercise.title }}</li>
+            {% comment %} <li>Excercise Description: {{ excercise.description }}</li> {% endcomment %}
+        {% endfor %}
+    </ul>
+</body>

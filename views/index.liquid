@@ -1,1 +1,9 @@
-Succes!
+{% render 'partials/head.liquid', title:'rouwtaak 1' %}
+
+<body>
+    {% comment %} task/1 ==> /task/:id (request.params.id: 1) {% endcomment %}
+    <a href="/task/1">test 1</a> 
+    <a href="/task/2">test 2</a>
+    <a href="/task/3">test 3</a>
+    <a href="/task/4">test 4</a>
+</body>
