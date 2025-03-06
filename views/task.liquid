@@ -1,13 +1,17 @@
-{% render 'partials/head.liquid', title:'rouwtaak 1' %}
+{% render 'partials/head.liquid' %}
 
 <body>
-    <p>Title: {{ task.title }}</p>
-    <p>Description: {{ task.description }}</p>
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
     
-    <ul>
+    <article>
         {% for excercise in task.exercise %}
-            <li>Exercise Title: {{ excercise.title }}</li>
+            <h2>{{ excercise.title }}</h2>
+            <a href="">community drops</a>
+            <a href="">start oefening</a> {% comment %} link toevoegen automatische opdracht {% endcomment %}
+            <p>25 min</p>
+            <p>3 tips</p>
             {% comment %} <li>Excercise Description: {{ excercise.description }}</li> {% endcomment %}
         {% endfor %}
-    </ul>
+    </article>
 </body>
