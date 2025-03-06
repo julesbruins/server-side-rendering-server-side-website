@@ -27,7 +27,7 @@ body {
     --accent-color-five: rgba(17, 17, 17, 1);
 
     /* FONTS */
-    --primary-font: , serif;
+    --primary-font: "", serif;
     --secondary-font: "figtree, serif"
 
     /* FONT-WEIGHT */
@@ -46,14 +46,6 @@ body {
     --lg: 3rem;
     --xl: 4rem;
     --xxl: 6rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: var(--primary-font);
 }
 
 h1,
@@ -78,9 +70,4 @@ h4,
 
 .xs {
     font-size: 1rem;
-}
-
-main {
-    max-width: fit-content;
-    margin: 1vw auto;
 }
