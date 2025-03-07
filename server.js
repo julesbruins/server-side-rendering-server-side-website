@@ -45,10 +45,18 @@ app.get('/', async function (request, response) {               // Je haalt de r
 
 app.get('/task/:id', async function (request, response) {       // Je haalt de id op die uit de filter (<a> van task.lquid) komt. 
   const task = request.params.id;                               // Je maakt een variabele aan voor de opgevraagde id
-  const taskResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_task/?fields=*.*&filter={"id":"${task}"}&limit=1`) // De variable kan je in de link terug laten komen
+  const taskResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_task/?fields=*.*&filter={"id":"${task}"}&limit=1`) // De variable kan je in de link terug laten komen + door de fields komen taken en opdrachten samen in een API.
   const taskResponseJSON = await taskResponse.json()            // Je zet de data om in JSON
 
   response.render('task.liquid', {task: taskResponseJSON.data?.[0] || [] })   // Je rendert de pagina op task.liquid. De vraagteken en || staan ervoor dat als de data leeg is de pagina alsnog geladen wordt.
+})
+
+app.get('/exercise/:id', async function (request, response) {
+  const exercise = request.params.id;
+  const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exercise}"}&limit=1`)
+  const exerciseResponseJSON = await exerciseResponse.json()
+
+  response.render('exercise.liquid', {exercise: exerciseResponseJSON.data?.[0] || [] })
 })
 
 
