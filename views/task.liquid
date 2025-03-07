@@ -5,12 +5,13 @@
     <p>{{ task.description }}</p>
     
     <article>
-        {% for excercise in task.exercise %} // hij laadt alles in wat in de database staat.
+        {% comment %} hij laadt alles in wat in de database staat. {% endcomment %}
+        {% for excercise in task.exercise %}  
             <h2>{{ excercise.title }}</h2>
-            <a href="">community drops</a>
-            <a href="/exercise/{{excercise.id}}">start oefening</a> {% comment %} link toevoegen automatische opdracht {% endcomment %}
-            <p>25 min</p>
-            <p>3 tips</p>
+            <a class="btn" href="">community drops</a>
+            <a class="start-btn" href="/exercise/{{excercise.id}}">start oefening</a> {% comment %} link toevoegen automatische opdracht {% endcomment %}
+            <p class="btn">25 min</p>
+            <p class="btn">3 tips</p>
             {% comment %} <li>Excercise Description: {{ excercise.description }}</li> {% endcomment %}
         {% endfor %}
     </article>
