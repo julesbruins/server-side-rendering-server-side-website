@@ -5,7 +5,7 @@
 }
 @font-face {
     font-family: "figtree";
-    src: url(/public/assets/Figtree-VariableFont_wght.ttf);
+    src: url('../assets/Figtree-VariableFont_wght.ttf');
 }
 
 /* CSS RESET */
@@ -28,7 +28,7 @@ body {
 
     /* FONTS */
     --primary-font: "", serif;
-    --secondary-font: "figtree, serif"
+    --secondary-font: "figtree";
 
     /* FONT-WEIGHT */
     --fw-light: 400;
