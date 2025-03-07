@@ -1,7 +1,7 @@
 /* FONTS INLADEN */
 @font-face {
-    font-family: "";
-    src: url();
+    font-family: "calvino-grande";
+    src: url(../assets/Calvino-Grande-Bold-trial.ttf);
 }
 @font-face {
     font-family: "figtree";
@@ -27,8 +27,8 @@ body {
     --accent-color-five: rgba(17, 17, 17, 1);
 
     /* FONTS */
-    --primary-font: "", serif;
-    --secondary-font: "figtree";
+    --primary-font: "calvino-grande", serif;
+    --secondary-font: "figtree", serif;
 
     /* FONT-WEIGHT */
     --fw-light: 400;
@@ -36,7 +36,7 @@ body {
     --fw-large: 800;
 
     /* BORDERS */
-    --border: 1.25px;
+    --border: 1.25px solid rgba(245, 245, 245, 0.2);
     --border-radius: 1.75rem;
 
     /* SIZING */
@@ -46,6 +46,11 @@ body {
     --lg: 3rem;
     --xl: 4rem;
     --xxl: 6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+    font-family: var(--primary-font);
 }
 
 h1,
@@ -70,4 +75,9 @@ h4,
 
 .xs {
     font-size: 1rem;
+}
+
+p, a {
+    color: var(--text-color);
+    font-family: var(--secondary-font);
 }

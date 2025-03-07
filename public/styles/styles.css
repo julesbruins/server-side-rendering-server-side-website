@@ -1,4 +1,15 @@
-p {
-    font-family: var(--secondary-font);
+body {
+    background-color: var(--background-color);
 }
 
+a {
+    border: var(--border) ;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    padding: 4px 16px;
+}
+
+.start-btn {
+    background-color: var(--accent-color-one);
+    padding: 8px 16px;
+}
