@@ -1,6 +1,9 @@
 {% render 'partials/head.liquid' %}
 
-<body>
-    <h1>{{ exercise.title }}</h1>
 
+    <h1>{{ exercise.title }}</h1>
+    <p>{{ exercise.description }}</p>
+
+    <img src="../assets/image-{{ exercise.task }}.jpg" alt="">
+    <a class="community-drops-exercise" href=""><img src="../assets/community-drops.png" alt="">47 community drops</a>
 </body>
