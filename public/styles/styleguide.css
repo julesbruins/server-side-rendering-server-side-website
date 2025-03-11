@@ -15,10 +15,14 @@
     box-sizing: border-box;
 }
 
-body {
+:root {
     /* COLORS */
-    --background-color: rgba(29, 29, 29, 1);
+    --background-color: rgba(17, 17, 17, 1);
+    --background-color-lighter: rgba(29, 29, 29, 1);
     --text-color: rgba(245, 245, 245, 1);
+
+
+    --accent-color: #ff0011;
 
     --accent-color-one: rgba(100, 170, 199, 1);
     --accent-color-two: rgba(152, 74, 74, 1);
@@ -80,4 +84,29 @@ h4,
 p, a {
     color: var(--text-color);
     font-family: var(--secondary-font);
+}
+
+.theme-blue {
+    --accent-color: rgba(65, 111, 131, 0.5);
+    --button-color: rgba(100, 170, 199, 1);;
+}
+
+.theme-red {
+    --accent-color: rgba(152, 74, 74, 0.5);
+    --button-color: rgba(152, 74, 74, 1);
+}
+
+.theme-green {
+    --accent-color: ;
+    --button-color: rgba(110, 145, 88, 1);
+}
+
+.theme-purple {
+    --accent-color: rgba(124, 96, 151, 0.5);
+    --button-color: rgba(124, 96, 151, 1);
+}
+
+
+.hidden {
+    display: none;
 }
