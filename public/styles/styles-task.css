@@ -1,0 +1,47 @@
+body {
+    background-color: var(--background-color);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+
+    .task-img, h2, p.margin {
+        margin: auto;
+    }
+    .task-img, p.margin {
+        margin-bottom: 3rem;
+    }
+
+
+    .exercises {
+        background-color: var(--background-color-lighter);
+        border-radius: var(--border-radius);
+        padding: 1.25rem;
+
+        article {
+            border: var(--border);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+
+        .flex-container {
+            display: flex;
+            gap: 5px;
+            }
+        }
+    }
+}
+
+a, .btn {
+    border: var(--border) ;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    padding: 4px 16px;
+    width: fit-content;
+}
+
+.start-btn {
+    background-color: var(--button-color);
+    padding: 8px 16px;
+}
