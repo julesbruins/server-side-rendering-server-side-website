@@ -20,9 +20,7 @@
     --background-color: rgba(17, 17, 17, 1);
     --background-color-lighter: rgba(29, 29, 29, 1);
     --text-color: rgba(245, 245, 245, 1);
-
-
-    --accent-color: #ff0011;
+    --text-color-darker: rgba(166, 166, 166, 1);
 
     --accent-color-one: rgba(100, 170, 199, 1);
     --accent-color-two: rgba(152, 74, 74, 1);
