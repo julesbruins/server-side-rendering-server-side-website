@@ -48,7 +48,7 @@ section {
             
 
             display: grid;
-            grid-template-rows: 50% 50%;
+            grid-template-rows: min-content max-content;
 
             .bottom-grid {
                 padding: 1rem;
