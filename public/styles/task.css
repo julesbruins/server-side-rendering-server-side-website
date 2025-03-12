@@ -35,8 +35,30 @@ section {
         margin-bottom: 3rem;
     }
 
+    &.intro {
+        position: relative;
 
-    .exercises {
+        .gradient {
+            position: absolute;
+            top: -10%;
+            width: 287px;
+            height: 287px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            filter: blur(150px);
+        }
+
+        .gradient-left {
+            left: -80%;
+        }
+
+        .gradient-right {
+            right: -80%;
+        }
+    }
+
+
+    &.exercises {
         background-color: var(--background-color-lighter);
         border-radius: var(--border-radius);
         padding: 1.25rem;
@@ -104,4 +126,3 @@ a, .btn {
   
     background-color: var(--button-color);
     border-radius: 7px 0px 0px 7px;
-  }
