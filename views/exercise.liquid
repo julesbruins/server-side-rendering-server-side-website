@@ -1,9 +1,14 @@
 {% render 'partials/head.liquid' %}
 
 
-    <h1>{{ exercise.title }}</h1>
+    <h1 class="lg">{{ exercise.title }}</h1>
     <p>{{ exercise.description }}</p>
 
-    <img src="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}" alt="">
-    <a class="community-drops-exercise" href=""><img src="../assets/community-drops.png" alt="">47 community drops</a>
+    <div class="flex-container">
+        <p>{{ exercise.type }}</p>
+        <p>{{ exercise.duration }}</p>
+        <a class="community-drops-exercise" href=""><img src="../assets/community-drops.png" alt="">47 community drops</a>
+    </div>
+
+    <img class="exercise-image" src="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}" alt="">
 </body>

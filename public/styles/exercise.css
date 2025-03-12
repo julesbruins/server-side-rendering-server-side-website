@@ -4,3 +4,25 @@
     font-weight: 700;
     text-decoration: underline;
 }
+
+p, ul {
+    color: var(--text-color);
+    font-family: var(--secondary-font);
+}
+
+h1 {
+    padding: 1rem;
+}
+
+body {
+    display: grid;
+
+    .exercise-image {
+        grid-row: 1;
+        height: 18rem;
+    }
+    .flex-container {
+        grid-row: 2;
+        /* padding: 1rem; */
+    }
+}

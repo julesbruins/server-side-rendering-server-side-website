@@ -6,13 +6,14 @@ header {
     display: grid;
     grid-template-columns: max-content max-content;
     grid-template-rows: min-content min-content;
+    background-color: var(--background-color);
     gap: .5rem;
     align-items: center;
     justify-content: center;
 
     border-bottom: var(--border);
     padding: 20px;
-    margin-bottom: 3rem;
+
 
     button {
         background-color: var(--background-color);
@@ -34,13 +35,15 @@ section {
     .task-img, p.margin {
         margin-bottom: 3rem;
     }
+    .task-img {
+        margin-top: 3rem;
+    }
 
     &.intro {
         position: relative;
 
         .gradient {
             position: absolute;
-            top: -10%;
             width: 287px;
             height: 287px;
             background: var(--accent-color);
@@ -49,11 +52,11 @@ section {
         }
 
         .gradient-left {
-            left: -80%;
+            left: -50%;
         }
 
         .gradient-right {
-            right: -80%;
+            right: -50%;
         }
     }
 
@@ -70,10 +73,10 @@ section {
             
 
             display: grid;
-            grid-template-rows: min-content max-content;
+            grid-template-rows: 50% max-content;
 
             .bottom-grid {
-                padding: 1rem;
+                padding: 2rem 1rem 1rem;
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
