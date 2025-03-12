@@ -31,3 +31,24 @@
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
+
+
+## TODO
+
+Stap 1:
+container maken met de verschillende tasks.
+
+Stap 2:
+positioneer onder de header (position: absolute)
+
+Stap 3:
+display none; op de container
+
+stap 4:
+javascript eventlistener op de menu button (arrow)
+arrow.addEventListener('click', () => {
+  container.classList.toggle('active')
+})
+
+stap 5:
+display: block als class="active" actiefis
