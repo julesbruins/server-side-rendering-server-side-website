@@ -10,12 +10,10 @@ p, ul {
     font-family: var(--secondary-font);
 }
 
-h1 {
-    padding: 1rem;
-}
+.exercise-page {
 
-body {
     display: grid;
+    width: 100%;
 
     .exercise-image {
         grid-row: 1;
