@@ -76,7 +76,7 @@ h4,
 }
 
 .xs {
-    font-size: 1rem;
+    font-size: clamp(.75rem, 3.5vw, 1.5rem)
 }
 
 p, a {
@@ -95,7 +95,7 @@ p, a {
 }
 
 .theme-green {
-    --accent-color: ;
+    --accent-color: rgba(110, 145, 88, 1);
     --button-color: rgba(110, 145, 88, 1);
 }
 

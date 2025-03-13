@@ -49,6 +49,8 @@ section {
             background: var(--accent-color);
             border-radius: 50%;
             filter: blur(150px);
+            opacity: 50%;
+            z-index: -10;
         }
 
         .gradient-left {
@@ -137,3 +139,36 @@ a, .btn {
     background-color: var(--button-color);
     border-radius: 7px 0px 0px 7px;
   }
+
+
+
+.nav-container {
+        display: flex;      
+        flex-direction: row;
+        height: fit-content;
+        gap: .5rem;
+        background-color: var(--background-color);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        padding: 1rem;
+    
+    .nav-links {
+        border: none;
+        text-align: center;
+        padding: 0;
+
+        img {
+            width: 4rem;
+            height: 4rem;
+            background-color: var(--background-color-lighter);
+            object-fit: cover;
+            border-radius: .75rem;
+            margin: 0;
+        }
+    }
+
+    /* display: none; */
+}
+
+.active {
+    display: block;
+}

@@ -11,16 +11,25 @@ p, ul {
 }
 
 .exercise-page {
-
     display: grid;
-    width: 100%;
+    /* width: 100%; */
 
+    h1 {
+        padding: 1rem 1rem 0;
+    }
+    p {
+        padding: 0 1rem 1rem;
+    }
     .exercise-image {
         grid-row: 1;
         height: 18rem;
+        width: 100%;
     }
     .flex-container {
         grid-row: 2;
         /* padding: 1rem; */
+    }
+    .community-drops-exercise {
+        margin-top: 1rem;
     }
 }
