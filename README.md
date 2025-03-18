@@ -31,7 +31,18 @@ Van origine is het de bedoeling dat je aan de hand van een vragenlijst een geper
 Je start op de overzichtspagina. Hier kun je verschillende opdrachten vinden die je doorleiden doormiddel van de 'start oefening' button naar de detailpagina van de desbetreffende opdracht. Je kunt wisselen tussen de pagina's via het menu. Je kunt dus op de site verschillende rouwtaken inzien en verschillende opdrachten maken.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat w elke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framework of library gebruikt? -->
+In dit project wordt er gebruik gemaakt van Node.js en Express om de webserver te beheren. Voor het genereren van dynamische HTML-pagina's wordt Liquid gebruikt, wat de webpagina's flexibel en makkelijk te onderhouden maakt.
+
+### routing
+- [`app.get("/")`](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L40-L44): Haalt alle gegevens op uit de directus API.
+- [`app.get("/task/:id/")](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L46-L52): Deze route haalt de informatie van een specifiek rouwtaak op, op basis van de id.
+- [`app.get("/exercise/:id/")](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L54-L60): Deze route haalt de informatie van een specifieke opdracht op, op basis van de id.
+
+### data & database
+- De server maakt een API aanroep zodat de data wordt omgezet in JSON formaat. [Zie hier hoe](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L15-L16).
+- Vervolgens wordt de opgehaalde data doorgegeven aan de Liquid-template via response.render(). [Zie hier hoe](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L43).
+- De data kan gebruikt worden in de liquid door het gebruik van variabelen en for loops. [Zie hier hoe](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/views/task.liquid#L39-L61).
+- Tot slot zorgt liquid ervoor dat de HTML gegenereed wordt, het naar de browser doorgestuurd wordt en zichtbaar is. 
 
 ## Installatie
 In dit project wordt gebruik gemaakt van NodeJS. Om aan dit project te werken moet NodeJS geïnstalleerd zijn. Eenmal geïnstalleerd kan het project geopend worden in de code editor.
