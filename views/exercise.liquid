@@ -7,7 +7,7 @@
     <div class="flex-container">
         <p>{{ exercise.type }}</p>
         <p>{{ exercise.duration }}</p>
-        <a class="community-drops-exercise" href=""><img src="../assets/community-drops.png" alt="">47 community drops</a>
+        <a class="community-drops-exercise" href="/community-drops/{{exercise.id}}"><img src="../assets/community-drops.png" alt="">{{ messagesLength }} community drops</a>
     </div>
 
     <img class="exercise-image" src="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}" alt="">
