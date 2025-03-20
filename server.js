@@ -10,10 +10,12 @@ console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
 const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task/')            // Je haalt de API op
 const excerciseResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_exercise')    // Je haalt de API op
+const messageResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages')
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 const taskResponseJSON = await taskResponse.json()                                                      // Je zet de data om in JSON
 const excerciseResponseJSON = await excerciseResponse.json()                                            // Je zet de data om in JSON
+const messageResponseJSON = await messageResponse.json()
 
 
 // Controleer eventueel de data in je console
@@ -23,6 +25,7 @@ const excerciseResponseJSON = await excerciseResponse.json()                    
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
+app.use(express.urlencoded({ extended: true }));
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
@@ -56,14 +59,40 @@ app.get('/exercise/:id', async function (request, response) {
   const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exercise}"}&limit=1`)
   const exerciseResponseJSON = await exerciseResponse.json()
 
-  response.render('exercise.liquid', {exercise: exerciseResponseJSON.data?.[0] || [] })
+  const messagesResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages?filter={"_and":[{"exercise":{"_eq":"${request.params.id}"}},{"from":{"_contains":"Jules_"}}]}`)
+  const messagesResponseJSON = await messagesResponse.json()
+
+  response.render('exercise.liquid', {exercise: exerciseResponseJSON.data?.[0] || [], messagesLength: messagesResponseJSON.data.length })
 })
 
+app.get('/community-drops/:id', async function (request, response) {
+  const messagesResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages?filter={"_and":[{"exercise":{"_eq":"${request.params.id}"}},{"from":{"_contains":"Jules_"}}]}`)
+  const messagesResponseJSON = await messagesResponse.json()
+
+  response.render('community-drops.liquid', { id: request.params.id, messages: messagesResponseJSON.data })
+})
+
+app.post('/community-drop/:id', async function (request, response) {
+  await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages', { // Je stuurt de message naar deze API
+    method: 'POST',
+    body: JSON.stringify({
+      from: `Jules_${request.body.name}`,
+      exercise: request.params.id,
+      text: request.body.community_drop
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+
+  response.redirect(303, `/community-drops/${request.params.id}`)
+})
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+
   // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
   response.redirect(303, '/')
 })

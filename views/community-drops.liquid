@@ -1,0 +1,12 @@
+{% render 'partials/head.liquid' %}
+
+<form method="POST" action="/community-drop/{{ id }}">
+    <label for="">naam:<input type="text" name="name" required></label>
+    <label for="">community drop:<input type="text" name="community_drop" required></label>
+    <button type="submit">plaats bericht</button>
+</form>
+
+{% for message in messages %}
+    <p>{{ message.text }}</p>
+    <p>{{ message.from | replace: "Jules_", "" }}</p>
+{% endfor %}
