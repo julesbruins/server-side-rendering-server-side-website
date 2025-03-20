@@ -42,24 +42,17 @@ section {
     &.intro {
         position: relative;
 
-        .gradient {
-            position: absolute;
-            width: 287px;
-            height: 287px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 50%;
-            z-index: -10;
-        }
-
-        .gradient-left {
-            left: -50%;
-        }
-
-        .gradient-right {
-            right: -50%;
-        }
+        background-image: 
+            radial-gradient(
+                circle at -10em 50%,
+                var(--accent-color), 
+                transparent 20em
+            ),
+            radial-gradient(
+                circle at calc(100% + 10em) 50%,
+                var(--accent-color), 
+                transparent 20em
+            );
     }
 
 
