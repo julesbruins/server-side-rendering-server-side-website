@@ -38,3 +38,47 @@ main {
     padding: 1.5rem;
     margin-bottom: 1rem;
 }
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    padding: 2rem;
+    
+    label {
+        font-family: var(--secondary-font);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        gap: .5rem;
+    }
+    input {
+        background-color: var(--background-color-lighter);
+        border: none;
+        border-radius: var(--border-radius);
+    }
+
+    button {
+        border: var(--border) ;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        padding: 4px 16px;
+        width: fit-content;
+        background-color: var(--background-color-lighter);
+        color: var(--text-color);
+        font-family: var(--secondary-font);
+
+        &:hover {
+            background-color: var(--background-color);
+        }
+    }
+}
+
+input[name="community_drop"] {
+    height: 10em;
+}
+input::placeholder {
+    padding: 1rem;
+}
