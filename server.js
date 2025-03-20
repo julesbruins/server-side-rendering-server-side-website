@@ -73,20 +73,20 @@ app.get('/community-drops/:id', async function (request, response) {
 })
 
 app.post('/community-drop/:id', async function (request, response) {
-  await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages', { // Je stuurt de message naar deze API
-    method: 'POST',
+  await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages', {      // Je stuurt de message naar deze API
+    method: 'POST',                                                                 // Je gebruikt de POST methode
     body: JSON.stringify({
-      from: `Jules_${request.body.name}`,
-      exercise: request.params.id,
-      text: request.body.community_drop
+      from: `Jules_${request.body.name}`,                                           // Ik gebruikt uit database from, exercise & text (Jules_ zorgt ervoor dat alleen mijn messages gebruikt worden)
+      exercise: request.params.id,                                                  // exercise zorgt ervoor dat bij juiste opdracht bijbehorende drops komen dmv request.params.id
+      text: request.body.community_drop                                             // text zorgt ervoor dat in het 'text' veld in database de geposte content komt
     }),
     headers: {
       'Content-Type': 'application/json',
     }
   });
 
-  response.redirect(303, `/community-drops/${request.params.id}`)
-})
+  response.redirect(303, `/community-drops/${request.params.id}`)                   // zorgt ervoor dat je na de post succesvol doorgelijdt wordt naar de pagina waar de berichten voor die specifieke opdracht worden weergegeven.
+})  
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
