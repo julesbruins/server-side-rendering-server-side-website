@@ -35,8 +35,8 @@ In dit project wordt er gebruik gemaakt van Node.js en Express om de webserver t
 
 ### routing
 - [`app.get("/")`](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L40-L44): Haalt alle gegevens op uit de directus API.
-- [`app.get("/task/:id/")](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L46-L52): Deze route haalt de informatie van een specifiek rouwtaak op, op basis van de id.
-- [`app.get("/exercise/:id/")](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L54-L60): Deze route haalt de informatie van een specifieke opdracht op, op basis van de id.
+- [`app.get("/task/:id/")`](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L46-L52): Deze route haalt de informatie van een specifiek rouwtaak op, op basis van de id.
+- [`app.get("/exercise/:id/"`)](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L54-L60): Deze route haalt de informatie van een specifieke opdracht op, op basis van de id.
 
 ### data & database
 - De server maakt een API aanroep zodat de data wordt omgezet in JSON formaat. [Zie hier hoe](https://github.com/julesbruins/server-side-rendering-server-side-website/blob/9ccadcba8f7a5007b0b4d4b5e5efbb46cd48aa72/server.js#L15-L16).
